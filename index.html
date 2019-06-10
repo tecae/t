@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="store.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <main role="main">
+        <article>
+            <form action="#">
+                <label for="valM">M</label>
+                <input type="range" name="valM" id="valM" value="10" oninput="resultvalM.value=parseInt(this.value);
+                Store.setM (this.value);">
+                <output name="resultvalM">10</output>
+                <br>
+
+                <label for="valN">N</label>
+                <input type="range" name="valN" id="valN" value="10" oninput="resultvalN.value=parseInt(this.value);
+                Store.setN (this.value);">
+                <output name="resultvalN">10</output>
+                <br>
+
+                <label for="valX">X</label>
+                <input type="range" name="valX" id="valX" value="10" oninput="resultvalX.value=parseInt(this.value);
+                Store.setX (this.value)">
+                <output name="resultvalX">10</output>
+                <br>
+
+
+                <!-- <output name="resultrange">10</output><input type="range" name="range" id="range" min="0" max="100"
+                    oninput="resultrange.value=parseInt(this.value);
+                    resultrange1.value=parseInt(this.value)*-1;" value="10">
+                <output name="resultrange1">-10</output>
+                <br> -->
+
+                <!-- <img src="img/del.png" alt="Удалить." width="30" height="30" srcset=""> -->
+                <button onclick="generate()" class="btn"><img src="img/update.png" alt="Обновить." srcset="" width="30"
+                        height="30"></button>
+                <button onclick="add()" class="btn"><img src="img/add.png" alt="Добавить строчку." srcset="" width="30"
+                        height="30"></button>
+                <!-- <button  onclick="del()">Удалить строчку!</button> -->
+            </form>
+        </article>
+        <article id="matrix">
+
+        </article>
+    </main>
+    <section>
+
+    </section>
+    <aside>
+        <details>
+            <summary>Технические условия.</summary>
+            <h3>Не использовать фреймворки и библиотеки.</h3>
+            <ul>
+                <li>Подготовка
+                    <ul>
+                        <li>
+                            + Создать матрицу M*N (строчки, колонки) Значение места пресечения — объект с уникальным
+                            идентификатором ID и количеством Amount: int(3-х значный рандом)
+                        </li>
+                        <li>
+                            + Найти сумму по каждой строчке M и среднее по каждому столбику N
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Вывод таблицы
+                    <ul>
+                        <li>
+                            + Вывести результирующие данные в таблицу с хорошим UX. В основных ячейках таблицы
+                            выводится Amount, ранее автоматически сгенерированный, справа сумма по строкам M, снизу —
+                            сумма ??(среднее)?? по столбцам N.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Динамика ячеек
+                    <ul>
+                        <li>
+                            + При нажатии на ячейку увеличивать значение Amount на 1 и соответственно менять среднее
+                            этого столбика и сумму этой строки
+                        </li>
+                        <li>
+                            + При наведении на ячейку подсветить X ячеек, Amount которых самый близкий к Amount текущей
+                            ячейки.
+                        </li>
+                        <li>
+                            + При наведении на ячейку суммы по строчке необходимо заменять значение ячеек на процент их
+                            вклада в общую сумму и добавить фон: столбик, который наглядно покажет величину процента.
+                            Фактически закрасить часть ячейки.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Динамика строк
+                    <ul>
+                        <li>
+                            + Дать возможность удалить строку с таблицы, при этом должны поменяться средние значения по
+                            каждому столбику
+                        </li>
+                        <li>
+                            + Дать возможность добавить строку, фактически M+1. При этом строка заполняется по всем
+                            правилам таблицы".
+                        </li>
+                    </ul>
+
+
+                </li>
+
+            </ul>
+            <p>- ПРИ ЛЮБЫХ ИЗМЕНЕНИЯХ ПЕРЕРИСОВЫВАЕТСЯ ВСЯ ТАБЛИЦА.</p>
+            <p>- ГЕНЕРАЦИЯ СЛУЧАЙНОГО ЧИСЛА.</p>
+
+        </details>
+    </aside>
+
+</body>
+
+</html>
