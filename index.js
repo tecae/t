@@ -1,6 +1,6 @@
 
 function drav(MN) {
- 
+
     var matrix = document.getElementById("matrix");
     if (matrix.children[0]) {
         matrix.removeChild(matrix.children[0]);
@@ -29,27 +29,36 @@ function drav(MN) {
                 var range = 100;//!!! <<<< На скільки наближено -100 +100
                 var table = evnt.target.parentElement.parentElement; // document.getElementById("MT");
                 // evnt.target.className = "";
+                
+                var arrIS = [];
 
-                for (var i = 0, row; row = table.rows[i]; i++) {
-                    //if (i > table.rows.length - 1) continue;
-                    /** лишний проход по последней строчке */
-                    for (var j = 0, col; col = row.cells[j]; j++) {
-                        //if (i > row.cells.length - 2) continue;
-                        /** лишний проход по двум правим колонкам */
-                        var varR = 1 * col.innerText - (1 * evnt.target.innerText);
-                        /**  4<5<6<7<  8  >9>10>11>12 */
+                for (let inn = 0; inn <= range && !!x ; inn ++) {/** поступово збільшуємо  range*/
+                    for (var i = 0, row; row = table.rows[i]; i++) {
+                        //if (i > table.rows.length - 1) continue;
+                        /** лишний проход по последней строчке */
+                        for (var j = 0, col; col = row.cells[j]; j++) {
+                            //if (i > row.cells.length - 2) continue;
+                            /** лишний проход по двум правим колонкам */
+                            var varR = 1 * col.innerText - (1 * evnt.target.innerText);
+                            /**  4<5<6<7<  8  >9>10>11>12 */
 
-                        if (!x) break; //<<<<
+                            if (!x) break; //<<<<
+                            
+                            if (arrIS.indexOf( col ) != -1 ) continue;
 
-                        if (varR == 0) {
-                            col.classList.toggle("same");
-                            x -= 1;
-                        } else if (varR < 0 && varR >= -1 * range) {
-                            col.classList.toggle("less");
-                            x -= 1;
-                        } else if (varR > 0 && varR <= range) {
-                            col.classList.toggle("more");
-                            x -= 1;
+                            if (varR == 0) {
+                                col.classList.toggle("same");
+                                arrIS.push(col);
+                                x -= 1;
+                            } else if (varR < 0 && varR >= -1 * inn) {
+                                col.classList.toggle("less");
+                                arrIS.push(col);
+                                x -= 1;
+                            } else if (varR > 0 && varR <= inn) {
+                                col.classList.toggle("more");
+                                arrIS.push(col);
+                                x -= 1;
+                            }
                         }
                     }
                 }
